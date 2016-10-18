@@ -2,15 +2,19 @@ var express = require('express');
 var app = express();
 var path = require('path');
 
-
-pathToJade = process.argv[3];
+//pathToJade = process.argv[3];
 
 // To tell Express.js app what template engine to use, apply this line to the
 // express.js configuration
+
 app.set('view engine', 'jade')
+//app.set('views', 'v');
 
 //This is how you can specify the path to the template files in the folder templates
-path.join(__dirname, 'templates');
+
+// WAS USING FOLLOWING LINE
+// path.join(__dirname, 'templates');
+
 //app.set('views', process.argv[3])//path.join(__dirname, 'templates'))
 
 // the -_direname is the absoulte apth of this file and the path.join is used to produce
@@ -19,8 +23,9 @@ path.join(__dirname, 'templates');
 
 // instead of res.end(), res.render() function accepts a template
 // name and data (called locals):
+
 app.get('/home', function(req, res) {
-	res.render('index', {date: new Date().toDateString()})
+	res.render('bs', {date: new Date().toDateString()})
 }).listen(process.argv[2]);
 // jade template engine
 // /home page
